@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashboard', [USerController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/roles-permissions', function () {
+    return view('vendor/laratrust/panel/roles/index');
+})->name('roles-permissions');
 
 
 Route::controller(USerController::class)->group(function () {
